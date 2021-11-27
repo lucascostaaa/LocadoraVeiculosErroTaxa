@@ -1,0 +1,14 @@
+{
+  "version": "1.0",
+  "defaultProvider": "cdnjs",
+  "libraries": [
+    {
+      "library": "font-awesome@5.15.4",
+      "destination": "wwwroot/font-awesome/"
+    },
+    {
+      "library": "jquery-maskmoney@3.0.2",
+      "destination": "wwwroot/jquery-maskmoney/"
+    }
+  ]
+}

@@ -1,0 +1,86 @@
+[
+    {
+        "id": 1,
+        "nome": "Cupom Mania",
+        "valor": "100,50",
+        "valorMinimo": "50,00",
+        "dataValidade": "15-11-2021",
+        "parceiro": {
+            "id": 5,
+            "nome": "Nona Carros"
+        },
+        "tipo": 1
+    },
+    {
+        "id": 2,
+        "nome": "Melhor Cupom",
+        "valor": "200,00",
+        "valorMinimo": "100,00",
+        "dataValidade": "20-11-2021",
+        "parceiro": {
+            "id": 6,
+            "nome": "Old Cars"
+        },
+        "tipo": 1
+    },
+    {
+        "id": 3,
+        "nome": "Super Cupom",
+        "valor": "50,00",
+        "valorMinimo": "50,00",
+        "dataValidade": "26-11-2021",
+        "parceiro": {
+            "id": 1,
+            "nome": "Best Cars"
+        },
+        "tipo": 1
+    },
+    {
+        "id": 4,
+        "nome": "Top Cupom",
+        "valor": "300,00",
+        "valorMinimo": "500,00",
+        "dataValidade": "30-11-2021",
+        "parceiro": {
+            "id": 2,
+            "nome": "Tony Carros"
+        },
+        "tipo": 2
+    },
+    {
+        "id": 5,
+        "nome": "Promo Cupom",
+        "valor": "150,00",
+        "valorMinimo": "50,00",
+        "dataValidade": "28-11-2021",
+        "parceiro": {
+            "id": 3,
+            "nome": "Empresa Car"
+        },
+        "tipo": 2
+    },
+    {
+        "id": 6,
+        "nome": "Cupom Cupom",
+        "valor": "100,00",
+        "valorMinimo": "25,00",
+        "dataValidade": "26-11-2021",
+        "parceiro": {
+            "id": 10,
+            "nome": "Gaucho Carros"
+        },
+        "tipo": 1
+    },
+    {
+        "id": 7,
+        "nome": "Vem Cupom",
+        "valor": "100,50",
+        "valorMinimo": "10,00",
+        "dataValidade": "22-11-2021",
+        "parceiro": {
+            "id": 9,
+            "nome": "Leva Cars"
+        },
+        "tipo": 1
+    }
+]

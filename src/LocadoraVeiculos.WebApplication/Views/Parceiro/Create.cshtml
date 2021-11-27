@@ -1,0 +1,20 @@
+﻿@model LocadoraVeiculos.WebApplication.ViewModels.ParceiroCreateViewModel
+
+@section Header {
+
+    @{await Html.RenderPartialAsync("_Header");}
+}
+
+<div class="row">
+    <div class="col-md-4">
+        <form asp-action="Create">
+
+            <partial name="_Input" model="Model" />
+
+        </form>
+    </div>
+</div>
+
+@section ValidationScripts {
+    @{await Html.RenderPartialAsync("_ValidationScriptsPartial");}
+}

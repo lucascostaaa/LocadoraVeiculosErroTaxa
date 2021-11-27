@@ -1,0 +1,70 @@
+﻿@model LocadoraVeiculos.WebApplication.ViewModels.CupomIndexViewModel
+
+@section Header {
+
+    @{await Html.RenderPartialAsync("_Header");}
+}
+
+<p>
+    <a asp-action="Create" class="btn btn-primary btn-lg">
+        <i class="fas fa-plus"></i>
+        <span> Cadastrar Cupom</span>
+    </a>
+</p>
+
+<table class="table table-striped">
+    <thead>
+        <tr class="rowA1">
+            <th scope="col">
+                <label asp-for="Registros[0].Id"></label>
+            </th>
+            <th scope="col">
+                <label asp-for="Registros[0].ParceiroNome"></label>
+            </th>
+            <th scope="col">
+                <label asp-for="Registros[0].Nome"></label>
+            </th>
+            <th scope="col">
+                <label asp-for="Registros[0].Valor"></label>
+            </th>
+            <th scope="col">
+                <label asp-for="Registros[0].DataValidade"></label>
+            </th>
+
+            <th></th>
+        </tr>
+    </thead>
+    <tbody>
+        @foreach (var item in Model.Registros)
+        {
+            <tr>
+                <th scope="row">
+                    <label>@item.Id</label>
+                </th>
+                <td>
+                    <label>@item.ParceiroNome</label>
+                </td>
+                <td>
+                    <label>@item.Nome</label>
+                </td>
+                <td>
+                    <label>@item.Valor.ToString("C")</label>
+                </td>
+                <td>
+                    <label>@item.DataValidade.ToShortDateString()</label>
+                </td>
+                <td>
+                    <a asp-action="Details" asp-route-id="@item.Id" class="btn btn-info btn-sm">
+                        <i class="fas fa-info-circle"></i>
+                    </a> |
+                    <a asp-action="Edit" asp-route-id="@item.Id" class="btn btn-success btn-sm">
+                        <i class="far fa-edit"></i>
+                    </a> |
+                    <a asp-action="Delete" asp-route-id="@item.Id" class="btn btn-danger btn-sm">
+                        <i class="far fa-trash-alt"></i>
+                    </a>
+                </td>
+            </tr>
+        }
+    </tbody>
+</table>

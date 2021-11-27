@@ -1,0 +1,91 @@
+<div class="container main-container">
+    <h4>Editar Cupom</h4>
+    <hr />
+    <form novalidate [formGroup]="cadastroForm" (ngSubmit)='atualizarCupom()'>
+        <div clas="form-group">
+            <label class="col-md-2 control-label" for="nome">Nome</label>
+            <div class="col-md-10">
+                <input class="form-control" id="nome" type="text" placeholder="Nome (requerido)"
+                    formControlName="nome" />
+                <span
+                    *ngIf="cadastroForm.controls.nome.errors && (cadastroForm.controls.nome.dirty || cadastroForm.controls.nome.touched)"
+                    class="alert">
+                    Campo Nome é obrigatório
+                </span>
+            </div>
+            <label class="col-md-2 control-label" for="valor">Valor</label>
+            <div class="col-md-10">
+                <input class="form-control" id="valor" type="text" placeholder="Valor (requerido)"
+                    formControlName="valor" />
+                <span
+                    *ngIf="cadastroForm.controls.valor.errors?.required && (cadastroForm.controls.valor.dirty || cadastroForm.controls.valor.touched)"
+                    class="alert">
+                    Campo Valor é obrigatório
+                </span>
+                <span
+                    *ngIf="cadastroForm.controls.valor.errors?.min && (cadastroForm.controls.valor.dirty || cadastroForm.controls.valor.touched)"
+                    class="alert">
+                    Campo Valor Não pode ser 0
+                </span>
+            </div>
+            <label class="col-md-2 control-label" for="valorMinimo">Valor Mínimo</label>
+            <div class="col-md-10">
+                <input class="form-control" id="valorMinimo" type="text" placeholder="Valor Mínimo (requerido)"
+                    formControlName="valorMinimo" />
+                <span
+                    *ngIf="cadastroForm.controls.valorMinimo.errors?.required && (cadastroForm.controls.valorMinimo.dirty || cadastroForm.controls.valorMinimo.touched)"
+                    class="alert">
+                    Campo Valor Mínimo é obrigatório
+                </span>
+                <span
+                    *ngIf="cadastroForm.controls.valorMinimo.errors?.valorMenor && (cadastroForm.controls.valorMinimo.dirty || cadastroForm.controls.valorMinimo.touched)"
+                    class="alert">
+                    Campo Valor não pode ser menor que o Valor Mínimo
+                </span>
+            </div>
+            <label class="col-md-2 control-label" for="dataValidade">Data Validade</label>
+            <div>
+                <div class="col-md-10">
+                    <input class="form-control" id="dataValidade" type="date" placeholder="Data Validade (requerido)"
+                        formControlName="dataValidade" />
+                </div>
+                <span
+                    *ngIf="cadastroForm.controls.dataValidade.errors && (cadastroForm.controls.dataValidade.dirty || cadastroForm.controls.dataValidade.touched)"
+                    class="alert">
+                    Campo Data Validade é obrigatório
+                </span>
+            </div>
+            <label class="col-md-2 control-label" for="parceiro">Parceiro</label>
+            <div class="col-md-10">
+                <select class="form-control" id="parceiro" formControlName="parceiroId">
+                    <option value="">Selecione um Parceiro</option>
+                    <option *ngFor="let parceiro of listaParceiros" value={{parceiro.id}}>
+                        {{parceiro.nome}}
+                    </option>
+                </select>
+                <span
+                    *ngIf="cadastroForm.controls.parceiroId.errors && (cadastroForm.controls.parceiroId.dirty || cadastroForm.controls.parceiroId.touched)"
+                    class="alert">
+                    Campo Parceiro é obrigatório
+                </span>
+            </div>
+            <label class="col-md-2 control-label" for="tipo">Tipo Cupom</label>
+            <div class="col-md-10">
+                <select class="form-control" id="tipo" formControlName="tipo">
+                    <option value="">Selecione um Tipo</option>
+                    <option *ngFor="let chave of chaves" value={{chave}}>
+                        {{tipos[chave] | formatarEnum}}
+                    </option>
+                </select>
+            </div>
+        </div>
+        <br>
+        <div class="form-group">
+            <div class="container">
+                <button class="btn btn-success" id="registrar" type="submit">Salvar</button>
+                <button class="btn btn-danger" id="cancelar" (click)="cancelar()">Cancelar</button>
+            </div>
+        </div>
+    </form>
+</div>
+<app-toasts aria-live="polite" aria-atomic="true"></app-toasts>

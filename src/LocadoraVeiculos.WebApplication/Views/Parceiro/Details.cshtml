@@ -1,0 +1,13 @@
+﻿@model LocadoraVeiculos.WebApplication.ViewModels.ParceiroDetailsViewModel
+
+@section Header {
+
+    @{await Html.RenderPartialAsync("_Header");}
+}
+
+<div>
+    <partial name="_Info" model="Model" />
+
+    <a asp-action="Edit" asp-route-id="@Model.Id" class="btn btn-success">Editar</a>
+    <a asp-action="Index" class="btn btn-info">Voltar para a Lista</a>
+</div>

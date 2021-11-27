@@ -1,0 +1,47 @@
+﻿@model LocadoraVeiculos.WebApplication.ViewModels.ParceiroInfoViewModel
+
+<div>
+    <dl class="row">
+        <dt class="col-sm-2">
+            <label asp-for="Id" class="control-label"></label>
+        </dt>
+        <dd class="col-sm-10">
+            @Model.Id
+        </dd>
+        <dt class="col-sm-2">
+            <label asp-for="Nome" class="control-label"></label>
+        </dt>
+        <dd class="col-sm-10">
+            @Model.Nome
+        </dd>
+        @*@if (Model.Cupons.Count > 0)
+        {
+            <dt class="col-sm-12">
+                <label asp-for="Cupons" class="control-label"></label>
+            </dt>
+            <dd>
+                <ul>
+                    @foreach (var c in Model.Cupons)
+                    {
+                        <li>[@c.Id] - [@c.Nome]</li>
+                    }
+                </ul>
+            </dd>
+        }
+        else
+        {
+            <dt class="col-sm-12">
+                <div class="alert alert-warning alert-dismissible fade show" role="alert">
+                    <strong>Nenhum cupom encontrado</strong> Clique
+                    <a asp-action="Create" asp-controller="Cupom">aqui</a>
+                    para cadastrar novos cupons para o parceiro [@Model.Nome]
+                    <button type="button" class="close" data-dismiss="alert" aria-label="Close">
+                        <span aria-hidden="true">&times;</span>
+                    </button>
+                </div>
+            </dt>
+            <dd></dd>
+        }*@
+
+    </dl>
+</div>
