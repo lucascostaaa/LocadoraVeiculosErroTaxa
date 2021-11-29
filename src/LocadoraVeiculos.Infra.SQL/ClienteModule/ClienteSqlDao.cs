@@ -118,5 +118,10 @@ namespace LocadoraVeiculos.Infra.SQL.ClienteModule
 
             return cliente;
         }
+
+        public void Dispose()
+        {
+            throw new NotImplementedException();
+        }
     }
 }

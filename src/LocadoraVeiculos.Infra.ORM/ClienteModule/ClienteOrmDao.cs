@@ -12,6 +12,11 @@ namespace LocadoraVeiculos.Infra.ORM.ClienteModule
         {
         }
 
+        public void Dispose()
+        {
+            db.Dispose();
+        }
+
         public bool ExisteClienteComEsteCpf(string cpf)
         {
             return dbSet.FirstOrDefault(x => x.CPF == cpf) != null;

@@ -1,7 +1,7 @@
 ﻿using AutoMapper;
-using LocadoraVeiculos.Aplicacao.TaxaModule;
+using LocadoraVeiculos.Aplicacao.ClienteModule;
 using LocadoraVeiculos.Dominio;
-using LocadoraVeiculos.Dominio.TaxaModule;
+using LocadoraVeiculos.Dominio.ClienteModule;
 using LocadoraVeiculos.WebApi.ViewModels;
 using Microsoft.AspNetCore.Mvc;
 using Microsoft.AspNetCore.Mvc.ModelBinding;
@@ -14,47 +14,46 @@ namespace LocadoraVeiculos.WebApi.Controllers
 {
     [Route("api/[controller]")]
     [ApiController]
-    public class TaxaController : ControllerBase
+    public class ClienteController : ControllerBase
     {
-        private readonly ITaxaRepository taxaRepository;
-        private readonly ITaxaAppService taxaAppService;
+        private readonly IClienteRepository clienteRepository;
+        private readonly IClienteAppService clienteAppService;
         private readonly IMapper mapper;
         private readonly INotificador notificador;
 
-
-        public TaxaController(ITaxaRepository taxaRepository, ITaxaAppService taxaAppService, IMapper mapper, INotificador notificador)
+        public ClienteController(IClienteRepository clienteRepository, IClienteAppService clienteAppService, IMapper mapper, INotificador notificador)
         {
-            this.taxaRepository = taxaRepository;
-            this.taxaAppService = taxaAppService;
+            this.clienteRepository = clienteRepository;
+            this.clienteAppService = clienteAppService;
             this.mapper = mapper;
             this.notificador = notificador;
         }
 
         [HttpGet]
-        public List<TaxaListViewModel> GetAll()
+        public List<ClienteListViewModel> GetAll()
         {
-            var taxas = taxaRepository.SelecionarTodos();
+            var taxas = clienteRepository.SelecionarTodos();
 
-            var viewModel = mapper.Map<List<TaxaListViewModel>>(taxas);
+            var viewModel = mapper.Map<List<ClienteListViewModel>>(taxas);
 
             return viewModel;
         }
 
         [HttpGet("{id}")]
-        public ActionResult<TaxaDetailsViewModel> Get(int id)
+        public ActionResult<ClienteDetailsViewModel> Get(int id)
         {
-            var taxa = taxaRepository.SelecionarPorId(id);
+            var taxa = clienteRepository.SelecionarPorId(id);
 
             if (taxa == null)
                 return NotFound(id);
 
-            var viewModel = mapper.Map<TaxaDetailsViewModel>(taxa);
+            var viewModel = mapper.Map<ClienteDetailsViewModel>(taxa);
 
             return Ok(viewModel);
         }
 
         [HttpPost]
-        public ActionResult<TaxaCreateViewModel> Create(TaxaCreateViewModel viewModel)
+        public ActionResult<ClienteCreateViewModel> Create(ClienteCreateViewModel viewModel)
         {
             if (ModelState.IsValid == false)
             {
@@ -74,9 +73,9 @@ namespace LocadoraVeiculos.WebApi.Controllers
                 });
             }
 
-            Taxa taxa = mapper.Map<Taxa>(viewModel);
+            Cliente cliente = mapper.Map<Cliente>(viewModel);
 
-            bool registroRealizado = taxaAppService.RegistrarNovaTaxa(taxa);
+            bool registroRealizado = clienteAppService.RegistrarNovoCliente(cliente);
 
             if (registroRealizado == false)
             {
@@ -92,16 +91,16 @@ namespace LocadoraVeiculos.WebApi.Controllers
         }
 
         [HttpPut("{id}")]
-        public ActionResult<TaxaEditViewModel> Edit(int id, TaxaEditViewModel viewModel)
+        public ActionResult<ClienteEditViewModel> Edit(int id, ClienteEditViewModel viewModel)
         {
             if (id != viewModel.Id)
                 return BadRequest();
 
-            Taxa taxa = mapper.Map<Taxa>(viewModel);
+            Cliente cliente = mapper.Map<Cliente>(viewModel);
 
-            var resultado = taxaAppService.EditarTaxa(id, taxa);
+            var resultado = clienteAppService.EditarCliente(id, cliente);
 
-            if (resultado == "Tarefa editado com sucesso")
+            if (resultado == "Cliente editado com sucesso")
             {
                 return Ok(viewModel);
             }
@@ -110,19 +109,21 @@ namespace LocadoraVeiculos.WebApi.Controllers
         }
 
         [HttpDelete("{id:int}")]
-        public ActionResult<TaxaCreateViewModel> Delete(int id)
+        public ActionResult<ClienteCreateViewModel> Delete(int id)
         {
             if (id <= 0)
                 return BadRequest("Id não pode ser menor que 0");
 
-            var resultado = taxaAppService.ExcluirTaxa(id);
+            var resultado = clienteAppService.ExcluirCliente(id);
 
-            if (resultado == "Taxa excluído com sucesso")
+            if (resultado == "Cliente excluído com sucesso")
             {
                 return Ok(id);
             }
 
             return NoContent();
         }
+
     }
+
 }

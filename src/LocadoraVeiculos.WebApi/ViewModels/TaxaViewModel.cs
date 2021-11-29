@@ -30,7 +30,6 @@ namespace LocadoraVeiculos.WebApi.ViewModels
         public string Nome { get; set; }
         public double Valor { get; set; }
         public int TipoTaxa { get; set; }
-
         public int EstadoTaxaLocacao { get; set; }
     }
 

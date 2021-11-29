@@ -13,8 +13,6 @@ namespace LocadoraVeiculos.Aplicacao.TaxaModule
         Taxa SelecionarPorId(int id);
         string ExcluirTaxa(int id);
         string EditarTaxa(int id, Taxa taxaEditada);
-
-
         List<Taxa> SelecionarTaxasNaoAdicionadas(List<Taxa> taxasJaAdicionadas);
     }
     public class TaxaAppService : ITaxaAppService
@@ -83,9 +81,9 @@ namespace LocadoraVeiculos.Aplicacao.TaxaModule
                 return false;
             }
 
-            var cupomInserido = taxaRepository.Inserir(taxa);
+            var taxaInserido = taxaRepository.Inserir(taxa);
 
-            if (cupomInserido == false)
+            if (taxaInserido == false)
             {
                 Log.Logger.Aqui().Warning(TaxaNaoRegistrado + IdTaxaFormat, taxa.Id);
 
@@ -99,17 +97,35 @@ namespace LocadoraVeiculos.Aplicacao.TaxaModule
 
         public Taxa SelecionarPorId(int id)
         {
-            throw new System.NotImplementedException();
+            return taxaRepository.SelecionarPorId(id);
         }
 
         public string ExcluirTaxa(int id)
         {
-            throw new System.NotImplementedException();
+            var taxaExcluido = taxaRepository.Excluir(id);
+
+            if (taxaExcluido == false)
+            {
+                Log.Logger.Aqui().Information(TaxaNaoExcluido + IdTaxaFormat, id);
+
+                return TaxaNaoExcluido;
+            }
+
+            return TaxaExcluido_ComSucesso;
         }
 
-        public string EditarTaxa(int id, Taxa taxaEditada)
+        public string EditarTaxa(int id, Taxa taxa)
         {
-            throw new System.NotImplementedException();
+            var taxaEditada = taxaRepository.Editar(id, taxa);
+
+            if (taxaEditada == false)
+            {
+                Log.Logger.Aqui().Information(TaxaNaoEditado + IdTaxaFormat, id);
+
+                return TaxaNaoEditado;
+            }
+
+            return TaxaEditado_ComSucesso;
         }
     }
 }

@@ -3,7 +3,7 @@ using AutoMapper;
 using AutoMapper.Contrib.Autofac.DependencyInjection;
 using LocadoraVeiculos.Dominio.FuncionarioModule;
 using LocadoraVeiculos.Dominio.TaxaModule;
-using LocadoraVeiculos.WebApplication.AutofacConfig;
+using LocadoraVeiculos.WebApi.Config;
 using Microsoft.AspNetCore.Builder;
 using Microsoft.AspNetCore.Hosting;
 using Microsoft.AspNetCore.Mvc;
@@ -41,9 +41,6 @@ namespace LocadoraVeiculos.WebApi
             builder.RegisterModule(new ContainerModule());
 
             builder.RegisterAutoMapper(typeof(Startup).Assembly);
-
-
-
         }
 
 

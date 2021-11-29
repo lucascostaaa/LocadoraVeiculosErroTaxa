@@ -22,11 +22,11 @@ namespace LocadoraVeiculos.WebApi.Config.AutoMapperConfig
 
             CreateMap<TaxaCreateViewModel, Taxa>()
             .ForMember(dest => dest.TipoTaxa, opt => opt.MapFrom(src => (TipoTaxaEnum)src.TipoTaxa))
-            .ForMember(dest => dest.Locacoes, opt => opt.MapFrom(src => (EstadoTaxaLocacaoEnum)src.EstadoTaxaLocacao));
+            .ForMember(dest => dest.EstadoTaxaLocacao, opt => opt.MapFrom(src => (EstadoTaxaLocacaoEnum)src.EstadoTaxaLocacao));
 
             CreateMap<TaxaEditViewModel, Taxa>()
               .ForMember(dest => dest.TipoTaxa, opt => opt.MapFrom(src => (TipoTaxaEnum)src.TipoTaxa))
-              .ForMember(dest => dest.Locacoes, opt => opt.MapFrom(src => (EstadoTaxaLocacaoEnum)src.EstadoTaxaLocacao));
+              .ForMember(dest => dest.EstadoTaxaLocacao, opt => opt.MapFrom(src => (EstadoTaxaLocacaoEnum)src.EstadoTaxaLocacao));
         }
 
 

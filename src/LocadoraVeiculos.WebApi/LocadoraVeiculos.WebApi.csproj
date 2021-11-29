@@ -17,7 +17,6 @@
     <ProjectReference Include="..\LocadoraVeiculos.Infra.InternetServices\LocadoraVeiculos.Infra.InternetServices.csproj" />
     <ProjectReference Include="..\LocadoraVeiculos.Infra.ORM\LocadoraVeiculos.Infra.ORM.csproj" />
     <ProjectReference Include="..\LocadoraVeiculos.Infra.PDF\LocadoraVeiculos.Infra.PDF.csproj" />
-    <ProjectReference Include="..\LocadoraVeiculos.WebApplication\LocadoraVeiculos.WebApplication.csproj" />
   </ItemGroup>
 
 </Project>

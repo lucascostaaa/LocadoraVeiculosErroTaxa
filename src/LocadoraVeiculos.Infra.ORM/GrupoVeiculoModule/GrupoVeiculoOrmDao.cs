@@ -12,6 +12,11 @@ namespace LocadoraVeiculos.Infra.ORM.GrupoVeiculoModule
         {
         }
 
+        public void Dispose()
+        {
+            db.Dispose();
+        }
+
         public List<GrupoVeiculo> SelecionarTodos(bool carregarPlanos = false)
         {
             List<GrupoVeiculo> gruposComPlanos = null;
@@ -24,6 +29,11 @@ namespace LocadoraVeiculos.Infra.ORM.GrupoVeiculoModule
                 gruposComPlanos = dbSet.ToList();
 
             return gruposComPlanos;
+        }
+
+        public bool VerificarNomeExistente(string nome)
+        {
+            return db.GrupoVeiculos.Count(x => x.Nome == nome) > 0;
         }
     }
 }

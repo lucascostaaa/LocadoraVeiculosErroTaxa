@@ -25,6 +25,9 @@ import { FuncionarioListarComponent } from './funcionario/listar/funcionario-lis
 import { FuncionarioEditarComponent } from './funcionario/editar/funcionario-editar.component';
 import { ToastContainerComponent } from './shared/components/toast-container/toast-container.component';
 import { FormatarEnumPipe } from './shared/pipes/formatar-enum.pipe';
+import { TaxaListarComponent } from './taxa/listar/taxa-listar.component';
+import { HttpTaxaService } from './taxa/listar/services/http-taxa.service';
+import { TaxaCriarComponent } from './taxa/criar/taxa-criar.component';
 
 
 @NgModule({
@@ -45,6 +48,8 @@ import { FormatarEnumPipe } from './shared/pipes/formatar-enum.pipe';
     FuncionarioEditarComponent,
     ToastContainerComponent,
     FormatarEnumPipe,
+    TaxaListarComponent,
+    TaxaCriarComponent,
   
   ],
   imports: [
@@ -60,7 +65,8 @@ import { FormatarEnumPipe } from './shared/pipes/formatar-enum.pipe';
     { provide: LOCALE_ID, useValue: 'en' },
     { provide: 'IHttpParceiroServiceToken', useClass: HttpParceiroService },
     { provide: 'IHttpCupomServiceToken', useClass: HttpCupomService },
-    { provide: 'IHttpFuncionarioServiceToken', useClass: HttpFuncionarioService }
+    { provide: 'IHttpFuncionarioServiceToken', useClass: HttpFuncionarioService },
+    { provide: 'IHttpTaxaServiceToken', useClass: HttpTaxaService }
   ],
   bootstrap: [AppComponent]
 })

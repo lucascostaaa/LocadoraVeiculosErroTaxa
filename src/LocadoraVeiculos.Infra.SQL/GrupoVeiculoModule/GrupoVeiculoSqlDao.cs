@@ -163,5 +163,14 @@ namespace LocadoraVeiculos.Infra.SQL.GrupoVeiculoModule
             return plano;
         }
 
+        public bool VerificarNomeExistente(string nome)
+        {
+            throw new NotImplementedException();
+        }
+
+        public void Dispose()
+        {
+            throw new NotImplementedException();
+        }
     }
 }

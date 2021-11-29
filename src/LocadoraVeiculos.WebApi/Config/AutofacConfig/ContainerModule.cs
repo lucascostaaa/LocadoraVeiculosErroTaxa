@@ -2,6 +2,7 @@
 using AutoMapper;
 using LocadoraVeiculos.Aplicacao.ClienteModule;
 using LocadoraVeiculos.Aplicacao.CupomModule;
+using LocadoraVeiculos.Aplicacao.FuncionarioModule;
 using LocadoraVeiculos.Aplicacao.GrupoVeiculoModule;
 using LocadoraVeiculos.Aplicacao.LocacaoModule;
 using LocadoraVeiculos.Aplicacao.TaxaModule;
@@ -9,6 +10,7 @@ using LocadoraVeiculos.Aplicacao.VeiculoModule;
 using LocadoraVeiculos.Dominio;
 using LocadoraVeiculos.Dominio.ClienteModule;
 using LocadoraVeiculos.Dominio.CupomModule;
+using LocadoraVeiculos.Dominio.FuncionarioModule;
 using LocadoraVeiculos.Dominio.GrupoVeiculoModule;
 using LocadoraVeiculos.Dominio.LocacaoModule;
 using LocadoraVeiculos.Dominio.Shared;
@@ -18,6 +20,7 @@ using LocadoraVeiculos.Infra.InternetServices.LocacaoModule;
 using LocadoraVeiculos.Infra.ORM;
 using LocadoraVeiculos.Infra.ORM.ClienteModule;
 using LocadoraVeiculos.Infra.ORM.CupomModule;
+using LocadoraVeiculos.Infra.ORM.FuncionarioModule;
 using LocadoraVeiculos.Infra.ORM.GrupoVeiculoModule;
 using LocadoraVeiculos.Infra.ORM.LocacaoModule;
 using LocadoraVeiculos.Infra.ORM.TaxaModule;
@@ -51,6 +54,7 @@ namespace LocadoraVeiculos.WebApi.Config
             builder.RegisterType<TaxaOrmDao>().As<ITaxaRepository>();
             builder.RegisterType<CondutorOrmDao>().As<ICondutorRepository>();
             builder.RegisterType<ParceiroOrmDao>().As<IParceiroRepository>();
+            builder.RegisterType<FuncionarioOrmDao>().As<IFuncionarioRepository>();
         }
 
         private static void RegistrarServicos(ContainerBuilder builder)
@@ -62,6 +66,7 @@ namespace LocadoraVeiculos.WebApi.Config
             builder.RegisterType<ParceiroAppService>().As<IParceiroAppService>();
             builder.RegisterType<GrupoVeiculoAppService>().As<IGrupoVeiculoAppService>();
             builder.RegisterType<TaxaAppService>().As<ITaxaAppService>();
+            builder.RegisterType<FuncionarioAppService>().As<IFuncionarioAppService>();
         }
 
            private static void RegistrarOutros(ContainerBuilder builder)
