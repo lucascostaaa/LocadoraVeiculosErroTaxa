@@ -2,8 +2,8 @@ import { Component, Inject, OnInit } from '@angular/core';
 import { FormControl, FormGroup, NumberValueAccessor, Validators } from '@angular/forms';
 import { Router } from '@angular/router';
 import { IHttpTaxaService } from 'src/app/shared/interfaces/IHttpTaxaService';
-import { EstadoLocacao } from 'src/app/shared/models/EstadoLocacaoEnum';
-import { TaxaType } from 'src/app/shared/models/TaxaType';
+import { EstadoTaxaLocacao } from 'src/app/shared/models/EstadoLocacaoEnum';
+import { TaxaType } from 'src/app/shared/models/TaxaEnum';
 import { ToastService } from 'src/app/shared/services/toast.service';
 import { TaxaCreateViewModel } from 'src/app/shared/viewModels/taxa/TaxaCreateViewModel';
 
@@ -18,7 +18,7 @@ export class TaxaCriarComponent implements OnInit {
   taxa: TaxaCreateViewModel;
 
   tipos = TaxaType;
-  estado = EstadoLocacao;
+  estadoTaxaLocacao = EstadoTaxaLocacao;
   chaves: any[];
 
 
@@ -29,7 +29,7 @@ export class TaxaCriarComponent implements OnInit {
 
   ngOnInit(): void {
     this.chaves = Object.keys(this.tipos).filter(t => !isNaN(Number(t)));
-    this.chaves = Object.keys(this.estado).filter(t => !isNaN(Number(t)));
+    this.chaves = Object.keys(this.estadoTaxaLocacao).filter(t => !isNaN(Number(t)));
 
     this.cadastroForm = new FormGroup({
       nome: new FormControl('', Validators.required),

@@ -1,0 +1,68 @@
+<div class="container main-container">
+    <h4>Lista Cupons</h4>
+    <hr />
+    <div style="float: right;">
+        <button class="btn btn-dark" [routerLink]="['/cliente/criar']">Cadastrar</button>
+        <button class="btn btn-dark" [routerLink]="['/cliente/editar', clienteSelecionado]"
+            [disabled]="!clienteSelecionado">Editar</button>
+        <button class="btn btn-dark" (click)="abrirConfirmacao(modalExclusao)"
+            [disabled]="!clienteSelecionado">Excluir</button>
+    </div>
+    <br>
+    <br>
+    <table class="table table-striped" data-click-to-select="true">
+        <thead>
+            <tr>
+                <th scope="col"></th>
+                <th scope="col">Id</th>
+                <th scope="col">Nome</th>
+                <th scope="col">Endereco</th>
+                <th scope="col">Telefone</th>
+                <th scope="col">RG</th>
+                <th scope="col">CPF</th>
+                <th scope="col">CNPJ</th>
+                <th scope="col">E-mail</th>
+                <th scope="col">Tipo de Pessoa</th>
+            </tr>
+        </thead>
+        <tbody>
+            <tr *ngFor="let cliente of listaCleinte">
+                <td>
+                    <div class="custom-control">
+                        <input type="radio" name="flexRadioDefault" class="custom-control-input" id="customRadio"
+                            value="{{ cliente.id }}" [(ngModel)]="clienteSelecionado">
+                    </div>
+                </td>
+                <td>{{ cliente.id }}</td>
+                <td>{{ cliente.nome }}</td>
+                <td>{{ cliente.endereco }}</td>
+                <td>{{ cliente.telefone }}</td>
+                <td>{{ cliente.rg }}</td>
+                <td>{{ cliente.cpf }}</td>
+                <td>{{ cliente.cnpj }}</td>
+                <td>{{ cliente.email }}</td>
+                <td>{{ cliente.tipoPessoa | formatarEnum}}</td>
+            </tr>
+        </tbody>
+    </table>
+
+    <div class="d-flex justify-content-between p-2">
+        <ngb-pagination [collectionSize]="collectionSize" [(page)]="page" [pageSize]="pageSize"
+            (pageChange)="atualizarCliente()">
+        </ngb-pagination>
+    </div>
+</div>
+
+<ng-template #modalExclusao let-modal>
+    <div class="modal-header">
+        <h4 class="modal-title">Excluir Cupom</h4>
+    </div>
+    <div class="modal-body">
+        Deseja realmente excluir esse Cupom?
+    </div>
+    <div class="modal-footer">
+        <button type="button" class="btn btn-danger" (click)="modal.close('Excluir')">Excluir</button>
+        <button type="button" class="btn btn-secondary" (click)="modal.close('Cancelar')">Cancelar</button>
+    </div>
+</ng-template>
+<app-toasts aria-live="polite" aria-atomic="true"></app-toasts>

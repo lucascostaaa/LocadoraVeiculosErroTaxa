@@ -28,6 +28,15 @@ import { FormatarEnumPipe } from './shared/pipes/formatar-enum.pipe';
 import { TaxaListarComponent } from './taxa/listar/taxa-listar.component';
 import { HttpTaxaService } from './taxa/listar/services/http-taxa.service';
 import { TaxaCriarComponent } from './taxa/criar/taxa-criar.component';
+import { TaxaEditarComponent } from './taxa/editar/taxa-editar.component';
+import { GrupoVeiculoCriarComponent } from './grupoVeiculo/criar/grupo-veiculo-criar.component';
+import { GrupoVeiculoListarComponent } from './grupoVeiculo/listar/grupo-veiculo-listar.component';
+import { HttpGrupoVeiculoService } from './grupoVeiculo/services/http-grupoVeiculo.service';
+import { GrupoVeiculoEditarComponent } from './grupoVeiculo/editar/grupo-veiculo-editar.component';
+import { ClienteListarComponent } from './cliente/listar/cliente-listar.component';
+import { HttpClienteService } from './cliente/services/http-cliente.service';
+import { ClienteCriarComponent } from './cliente/criar/cliente-criar.component';
+import { ClienteEditarComponent } from './cliente/editar/cliente-editar.component';
 
 
 @NgModule({
@@ -50,6 +59,13 @@ import { TaxaCriarComponent } from './taxa/criar/taxa-criar.component';
     FormatarEnumPipe,
     TaxaListarComponent,
     TaxaCriarComponent,
+    TaxaEditarComponent,
+    GrupoVeiculoCriarComponent,
+    GrupoVeiculoListarComponent,
+    GrupoVeiculoEditarComponent,
+    ClienteListarComponent,
+    ClienteCriarComponent,
+    ClienteEditarComponent,
   
   ],
   imports: [
@@ -66,7 +82,9 @@ import { TaxaCriarComponent } from './taxa/criar/taxa-criar.component';
     { provide: 'IHttpParceiroServiceToken', useClass: HttpParceiroService },
     { provide: 'IHttpCupomServiceToken', useClass: HttpCupomService },
     { provide: 'IHttpFuncionarioServiceToken', useClass: HttpFuncionarioService },
-    { provide: 'IHttpTaxaServiceToken', useClass: HttpTaxaService }
+    { provide: 'IHttpTaxaServiceToken', useClass: HttpTaxaService },
+    { provide: 'IHttpGrupoVeiculoServiceToken', useClass: HttpGrupoVeiculoService },
+    { provide: 'IHttpClienteServiceToken', useClass: HttpClienteService }
   ],
   bootstrap: [AppComponent]
 })

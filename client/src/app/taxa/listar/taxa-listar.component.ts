@@ -58,7 +58,7 @@ export class TaxaListarComponent implements OnInit {
             }, 5000);
           },
           erro => {
-            this.toastService.show('Erro ao remover taxa: ' + erro.error.errors["Nome"].toString(),
+            this.toastService.show('Erro ao remover taxa: ' + erro.error.errors["Nome"],
               { classname: 'bg-danger text-light', delay: 5000 });
           }
         );

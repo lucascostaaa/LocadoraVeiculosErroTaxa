@@ -1,5 +1,5 @@
-export enum EstadoLocacao{
-    adicionada = 0,
-    removida = 1,
-    gravada = 2
+export enum EstadoTaxaLocacao{
+    Adicionada = 0,
+    Removida = 1,
+    Gravada = 2
 }

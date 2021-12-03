@@ -14,7 +14,7 @@ namespace LocadoraVeiculos.WebApi.Config.AutoMapperConfig
         {
             CreateMap<Taxa, TaxaListViewModel>()
             .ForMember(dest => dest.TipoTaxa, opt => opt.MapFrom(src => src.TipoTaxa))
-            .ForMember(dest => dest.EstadoTaxaLocacao, opt => opt.MapFrom(src => (int)src.EstadoTaxaLocacao));
+            .ForMember(dest => dest.EstadoTaxaLocacao, opt => opt.MapFrom(src => src.EstadoTaxaLocacao));
 
             CreateMap<Taxa, TaxaDetailsViewModel>()
             .ForMember(dest => dest.TipoTaxa, opt => opt.MapFrom(src => (int)src.TipoTaxa))

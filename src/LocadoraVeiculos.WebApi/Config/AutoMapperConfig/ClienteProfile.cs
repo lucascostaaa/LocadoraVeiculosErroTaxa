@@ -14,7 +14,7 @@ namespace LocadoraVeiculos.WebApi.Config.AutoMapperConfig
         public ClienteProfile()
         {
             CreateMap<Cliente, ClienteListViewModel>()
-                .ForMember(dest => dest.TipoPessoa, opt => opt.MapFrom(src => (int)src.TipoPessoa));
+                .ForMember(dest => dest.TipoPessoa, opt => opt.MapFrom(src => src.TipoPessoa));
 
             CreateMap<Cliente, ClienteDetailsViewModel>()
                 .ForMember(dest => dest.TipoPessoa, opt => opt.MapFrom(src => (int)src.TipoPessoa));

@@ -1,5 +1,7 @@
 import { Observable } from "rxjs";
 import { TaxaCreateViewModel } from "../viewModels/taxa/TaxaCreateViewModel";
+import { TaxaDetailsViewModel } from "../viewModels/taxa/TaxaDetailsViewModel";
+import { TaxaEditViewModel } from "../viewModels/taxa/TaxaEditViewModel";
 import { TaxaListViewModel } from "../viewModels/taxa/TaxaListViewModel";
 
 export interface IHttpTaxaService {
@@ -8,9 +10,9 @@ export interface IHttpTaxaService {
 
     adicionarTaxa(taxa: TaxaCreateViewModel): Observable<TaxaCreateViewModel>
 
-    //obterTaxaPorId(taxaId: number): Observable<CupomDetailsViewModel>
+    obterTaxaPorId(taxaId: number): Observable<TaxaDetailsViewModel>
 
-    //editarTaxa(taxa: CupomEditViewModel): Observable<CupomEditViewModel>
+    editarTaxa(taxa: TaxaEditViewModel): Observable<TaxaEditViewModel>
 
-   excluirTaxa(taxaId: number): Observable<number>
+    excluirTaxa(taxaId: number): Observable<number>
 }

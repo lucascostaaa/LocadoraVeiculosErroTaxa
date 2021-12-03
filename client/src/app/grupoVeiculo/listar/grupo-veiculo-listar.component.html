@@ -1,12 +1,12 @@
 <div class="container main-container">
-    <h4>Lista Taxas</h4>
+    <h4>Lista Grupo de Veiculos</h4>
     <hr />
     <div style="float: right;">
-        <button class="btn btn-dark" [routerLink]="['/taxa/criar']">Cadastrar</button>
-        <button class="btn btn-dark" [routerLink]="['/taxa/editar', taxaSelecionada]"
-            [disabled]="!taxaSelecionada">Editar</button>
+        <button class="btn btn-dark" [routerLink]="['/grupoVeiculo/criar']">Cadastrar</button>
+        <button class="btn btn-dark" [routerLink]="['/grupoVeiculo/editar', grupoVeiculoSelecionado]"
+            [disabled]="!grupoVeiculoSelecionado">Editar</button>
         <button class="btn btn-dark" (click)="abrirConfirmacao(modalExclusao)"
-            [disabled]="!taxaSelecionada">Excluir</button>
+            [disabled]="!grupoVeiculoSelecionado">Excluir</button>
     </div>
     <br>
     <br>
@@ -16,41 +16,36 @@
                 <th scope="col"></th>
                 <th scope="col">Id</th>
                 <th scope="col">Nome</th>
-                <th scope="col">Valor</th>
-                <th scope="col">Tipo</th>
-                <th scope="col">estado Locacao</th>
             </tr>
         </thead>
         <tbody>
-            <tr *ngFor="let taxa of listaTaxas">
+            <tr *ngFor="let grupoVeiculo of listaGrupoVeiculo">
                 <td>
                     <div class="custom-control">
                         <input type="radio" name="flexRadioDefault" class="custom-control-input" id="customRadio"
-                            value="{{ taxa.id }}" [(ngModel)]="taxaSelecionada">
+                            value="{{ grupoVeiculo.id }}" [(ngModel)]="grupoVeiculoSelecionado">
                     </div>
                 </td>
-                <td>{{ taxa.id }}</td>
-                <td>{{ taxa.nome }}</td>
-                <td>{{ taxa.valor | currency:'BRL'}}</td>
-                <td>{{ taxa.tipoTaxa | formatarEnum }}</td>
-                <td>{{ taxa.estadoLocacao | formatarEnum }}</td>
+                <td>{{ grupoVeiculo.id }}</td>
+                <td>{{ grupoVeiculo.nome }}</td>
             </tr>
         </tbody>
     </table>
 
     <div class="d-flex justify-content-between p-2">
         <ngb-pagination [collectionSize]="collectionSize" [(page)]="page" [pageSize]="pageSize"
-            (pageChange)="atualizarTaxas()">
+            (pageChange)="atualizarGrupoVeiculo()">
         </ngb-pagination>
     </div>
+
 </div>
 
 <ng-template #modalExclusao let-modal>
     <div class="modal-header">
-        <h4 class="modal-title">Excluir Taxa</h4>
+        <h4 class="modal-title">Excluir Grupo Veiculo</h4>
     </div>
     <div class="modal-body">
-        Deseja realmente excluir essa Taxa?
+        Deseja realmente excluir esse Grupo?
     </div>
     <div class="modal-footer">
         <button type="button" class="btn btn-danger" (click)="modal.close('Excluir')">Excluir</button>

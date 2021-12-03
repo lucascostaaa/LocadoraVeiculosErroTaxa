@@ -8,10 +8,11 @@ namespace LocadoraVeiculos.WebApi.ViewModels
 {
     public class TaxaListViewModel
     {
+        public int id { get; set; }
         public string Nome { get; set; }
         public double Valor { get; set; }
-        public int TipoTaxa { get; set; }
-        public int EstadoTaxaLocacao { get; set; }
+        public string TipoTaxa { get; set; }
+        public string EstadoTaxaLocacao { get; set; }
     }
     public class TaxaDetailsViewModel
     {

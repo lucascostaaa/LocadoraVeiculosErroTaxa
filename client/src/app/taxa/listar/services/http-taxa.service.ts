@@ -2,8 +2,12 @@ import { HttpClient } from "@angular/common/http";
 import { Injectable } from "@angular/core";
 import { Observable } from "rxjs";
 import { IHttpTaxaService } from "src/app/shared/interfaces/IHttpTaxaService";
+import { Taxa } from "src/app/shared/models/Taxa";
 import { TaxaCreateViewModel } from "src/app/shared/viewModels/taxa/TaxaCreateViewModel";
+import { TaxaDetailsViewModel } from "src/app/shared/viewModels/taxa/TaxaDetailsViewModel";
+import { TaxaEditViewModel } from "src/app/shared/viewModels/taxa/TaxaEditViewModel";
 import { TaxaListViewModel } from "src/app/shared/viewModels/taxa/TaxaListViewModel";
+import { TaxaEditarComponent } from "../../editar/taxa-editar.component";
 
 @Injectable({
   providedIn: 'root'
@@ -29,19 +33,12 @@ export class HttpTaxaService implements IHttpTaxaService {
     return this.http.delete<number>(`${this.apiUrl}/${taxaId}`);
   }
 
-  /*   obterFuncionarioPorId(funcionarioId: number): Observable<FuncionarioDetailsViewModel> {
-       return this.http.get<FuncionarioDetailsViewModel>(`${this.apiUrl}/${funcionarioId}`);
-     }
-     editarFuncionario(funcionario: FuncionarioEditViewModel): Observable<FuncionarioEditViewModel> {
-       return this.http.put<FuncionarioEditViewModel>(`${this.apiUrl}/${funcionario.id}`, funcionario);
-     }
-   
- 
-     }*/
+  obterTaxaPorId(taxaId: number): Observable<TaxaDetailsViewModel> {
+    return this.http.get<TaxaDetailsViewModel>(`${this.apiUrl}/${taxaId}`);
+  }
+  editarTaxa(taxa: TaxaEditViewModel): Observable<TaxaEditViewModel> {
+    return this.http.put<TaxaEditViewModel>(`${this.apiUrl}/${taxa.id}`, taxa);
+  }
 
-  /* public adicionarFuncionario(funcionario: FunicionarioCreateViewModel): Observable<FunicionarioCreateViewModel> {
-     return this.http.post<FunicionarioCreateViewModel>(this.apiUrl, funcionario);
-   }
- */
 
 }

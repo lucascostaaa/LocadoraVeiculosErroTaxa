@@ -1,7 +1,7 @@
 <div class="container main-container">
-    <h4>Cadastrar Taxa</h4>
+    <h4>Editar Taxa</h4>
     <hr />
-    <form novalidate [formGroup]="cadastroForm" (ngSubmit)='adicionarTaxa()'>
+    <form novalidate [formGroup]="cadastroForm" (ngSubmit)='atualizarTaxa()'>
         <div clas="form-group">
             <label class="col-md-2 control-label" for="nome">Nome</label>
             <div class="col-md-10">
@@ -28,21 +28,21 @@
                     Campo Valor Não pode ser 0
                 </span>
             </div>
-            <label class="col-md-2 control-label" for="tipo">Tipo Taxa</label>
+            <label class="col-md-2 control-label" for="tipoTaxa">Tipo Taxa</label>
             <div class="col-md-10">
-                <select class="form-control" id="tipo" formControlName="tipo">
+                <select class="form-control" id="tipoTaxa" formControlName="tipoTaxa">
                     <option value="">Selecione um Tipo</option>
                     <option *ngFor="let chave of chaves" value={{chave}}>
-                        {{tipos[chave] | formatarEnum}}
+                        {{tipoTaxa[chave] | formatarEnum}}
                     </option>
                 </select>
             </div>
-            <label class="col-md-2 control-label" for="estadoTaxaLocacao">Estado Locacao</label>
+            <label class="col-md-2 control-label" for="estadoLocacao">Estado Locacao</label>
             <div class="col-md-10">
-                <select class="form-control" id="estadoTaxaLocacao" formControlName="estadoTaxaLocacao">
+                <select class="form-control" id="estadoLocacao" formControlName="estadoLocacao">
                     <option value="">Selecione um Estado Locacao</option>
                     <option *ngFor="let chave of chaves" value={{chave}}>
-                        {{estadoTaxaLocacao[chave] | formatarEnum}}
+                        {{estadoLocacao[chave] | formatarEnum}}
                     </option>
                 </select>
             </div>
@@ -50,7 +50,7 @@
         <br>
         <div class="form-group">
             <div class="col-md-4 col-md-offset-2">
-                <span><button class="btn btn-success" id="registrar" type="submit">Registrar</button></span>
+                <span><button class="btn btn-success" id="registrar" type="submit">Salvar</button></span>
                 <span><button class="btn btn-danger" id="cancelar" (click)="cancelar()">Cancelar</button></span>
             </div>
         </div>

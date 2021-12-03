@@ -1,4 +1,4 @@
 export enum TaxaType{
-    valorDias = 0,
+    ValorDias = 0,
     ValorUmaVez = 1,
 }

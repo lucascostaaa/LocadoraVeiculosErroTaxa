@@ -28,13 +28,13 @@ namespace LocadoraVeiculos.Dominio.ClienteModule
             Email = email;
         }
 
-        public string Nome { get; }
-        public string Endereco { get; }
-        public string Telefone { get; }
-        public string CNPJ { get; }
-        public string RG { get; }
-        public virtual string CPF { get; }
-        public TipoPessoaEnum TipoPessoa { get; }
+        public string Nome { get; set; }
+        public string Endereco { get; set; }
+        public string Telefone { get; set; }
+        public string CNPJ { get; set; }
+        public string RG { get; set; }
+        public virtual string CPF { get; set; }
+        public TipoPessoaEnum TipoPessoa { get; set; }
         public virtual string Email { get; set; }
         public virtual ICollection<Condutor> Condutores { get; set; }
 
